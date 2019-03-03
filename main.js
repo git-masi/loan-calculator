@@ -1,3 +1,4 @@
+const LOAN_DETAILS_SECTION = document.getElementById('loan-details');
 const SUBMIT_BTN = document.querySelector('#loan-details .input-field .btn');
 const LOAN_AMOUNT = document.getElementById('loan-amount');
 const INTEREST = document.getElementById('interest');
@@ -15,7 +16,15 @@ function loadEventListeners(){
 }
 
 function calculateResults(e){
-  if(!LOAN_AMOUNT.value || !INTEREST.value || !REPAY.value) return;
+  if(!LOAN_AMOUNT.value || !INTEREST.value || !REPAY.value) {
+    showError();
+    SUBMIT_BTN.setAttribute('disabled', true);
+    setTimeout(()=>{
+      LOAN_DETAILS_SECTION.removeChild(LOAN_DETAILS_SECTION.lastChild);
+      SUBMIT_BTN.removeAttribute('disabled');
+    }, 3000)
+    return
+  };
   
   const PRINCIPAL = Number(LOAN_AMOUNT.value);
   const ANNUAL_INTEREST = Number(INTEREST.value) / 100 / 12;
@@ -42,4 +51,16 @@ function calculateResults(e){
 function hidePreloaderShowResults(){
   PRELOADER_ANIMATION.classList.add('hide')
   RESULTS_SECTION.classList.remove('hide');
+}
+
+function showError(){
+  if(document.querySelector('.errorMessage')) return;
+
+  let errorMessageDiv = document.createElement('div');
+  errorMessageDiv.classList.add('col', 's12', 'red', 'errorMessage');
+  let errorMessageText = document.createElement('h4');
+  errorMessageText.classList.add('center-align');
+  errorMessageText.textContent = 'Please check your numbers';
+  errorMessageDiv.appendChild(errorMessageText);
+  LOAN_DETAILS_SECTION.appendChild(errorMessageDiv);
 }
