@@ -21,15 +21,15 @@
           <h2 class="center-align">Loan Calculator</h2>
           <div class="input-field col s12">
             <i class="material-icons prefix">attach_money</i>
-            <input placeholder="Loan Amount" id="loan-amount" type="number" class="validate">
+            <input placeholder="Loan Amount" id="loan-amount" type="number" min="1" class="validate">
           </div>
           <div class="input-field col s12">
             <i class="material-icons prefix">timeline</i>
-            <input placeholder="interest" id="interest" type="number" class="validate">
+            <input placeholder="Interest" id="interest" type="number" min="1" class="validate">
           </div>
           <div class="input-field col s12">
             <i class="material-icons prefix">access_time</i>
-            <input placeholder="Repayment Years" id="repay" type="number" class="validate">
+            <input placeholder="Repayment Years" id="repay" type="number" min="1" class="validate">
           </div>
           <div class="input-field col s12">
             <a class="waves-effect waves-black btn green lighten-1">Calculate</a>
@@ -37,14 +37,18 @@
         </div>
       </div>
       <!-- preloader animation -->
-      <div class="preloader-wrapper big active hide">
-        <div class="spinner-layer spinner-blue-only">
-          <div class="circle-clipper left">
-            <div class="circle"></div>
-          </div><div class="gap-patch">
-            <div class="circle"></div>
-          </div><div class="circle-clipper right">
-            <div class="circle"></div>
+      <div class="row">
+        <div class="col s10 offset-s1 center-align hide" id="preloader-margin">
+          <div class="preloader-wrapper big active center-align">
+            <div class="spinner-layer spinner-green-only">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div><div class="gap-patch">
+                <div class="circle"></div>
+              </div><div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -54,15 +58,15 @@
           <h4 class="center-align">Results</h4>
           <div class="input-field col s12">
             <label for="monthly-payment" class="active">Monthly Payment</label>
-            <input disabled id="monthly-payment" type="number" value="1000">
+            <input disabled id="monthly-payment" type="number" value="0">
           </div>
           <div class="input-field col s12">
             <label for="total-payment" class="active">Total Payment</label>
-            <input disabled id="total-payment" type="number" value="1000">
+            <input disabled id="total-payment" type="number" value="0">
           </div>
           <div class="input-field col s12">
             <label for="total-interest" class="active">Total Interest</label>
-            <input disabled id="total-interest" type="number" value="1000">
+            <input disabled id="total-interest" type="number" value="0">
           </div>
         </div>
       </div>

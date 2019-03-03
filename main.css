@@ -1,12 +1,9 @@
-html, body {
-  height: 100%;
-}
-
 html {
   font-size: 62.5%;
 }
 
 body {
+  height: 100%;
   background: linear-gradient(to bottom, #e8f5e9, #b9f6ca);
 }
 
@@ -44,4 +41,9 @@ body {
 /* icon prefix focus color */
 .input-field .prefix.active {
   color: #66bb6a;
+}
+
+#preloader-margin {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
 }
